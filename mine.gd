@@ -42,5 +42,21 @@ func _physics_process(delta):
 
 func explode():
 	
+	
+	$Area2D/CollisionShape2D.disabled = false
+	
+	
+	$delete_timer.start()
+
+
+func _on_delete_timer_timeout():
 	queue_free()
+
+
+
+func _on_Area2D_body_entered(body):
+	
+	print(body.position - position)
+	
+	
 
