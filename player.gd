@@ -45,13 +45,14 @@ func drop_mine():
 	
 	var mine_instance = mine.instance()
 	mine_instance.position = get_global_position()
-	#bullet_instance.parent_velocity = velocity
+	mine_instance.parent_velocity = velocity
+	mine_instance.direction = rotation
 	mine_instance.name = "p1mine"
 	
 	get_tree().get_root().add_child(mine_instance)
 
 func explode_mine():
-	get_tree().get_root().get_node("p1mine").queue_free()
+	get_tree().get_root().get_node("p1mine").explode()
 	print("explota")
 
 func shoot():
