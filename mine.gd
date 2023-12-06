@@ -60,5 +60,9 @@ func _on_Area2D_body_entered(body):
 	
 	print(body.position - position)
 	
+	print((body.position - position).length())
+	
+	body.velocity += (body.position - position).normalized() * ( 10000 / pow((body.position - position).length(), 2 ) )
+	
 	
 
