@@ -32,10 +32,10 @@ func mines():
 	
 	if Input.is_action_pressed("p1mine") and !there_is_a_mine():
 		drop_mine()
-		
-		
+	
 	if Input.is_action_just_released("p1mine") and there_is_a_mine():
 		explode_mine()
+
 
 func there_is_a_mine():
 	if get_tree().get_root().get_node("p1mine"):
