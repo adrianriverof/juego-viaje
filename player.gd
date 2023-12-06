@@ -15,14 +15,14 @@ var rotation_radians = 0.5
 var speed = 500
 var move_weight = 0.05
 
-var firerate_time = 0.5
+var firerate_time = 0.1
 
 func _ready():
 	firerate_timer.wait_time = firerate_time
 
 func _physics_process(delta):
 	move()
-	#shoot()
+	shoot()
 
 func shoot():
 	
