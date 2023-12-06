@@ -1,16 +1,29 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var giro_input = 0
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
+func set_physics_process(delta):
+	move()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func move():
+	#acceleration()
+	giro()
+	
+func giro():
+	giro_inputs()
+	
+	
+
+
+func giro_inputs():
+	giro_input = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
+	
+
+
+
+
+
