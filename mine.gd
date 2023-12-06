@@ -45,6 +45,8 @@ func explode():
 	
 	$Area2D/CollisionShape2D.disabled = false
 	
+	#print($Area2D/CollisionShape2D.get_overlapping_bodies())
+	
 	
 	$delete_timer.start()
 
