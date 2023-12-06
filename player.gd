@@ -16,8 +16,10 @@ func move():
 	
 func giro():
 	giro_inputs()
+	rotar_todo()
 	
 	
+func rotar_todo():
 	rotation += cantidad_giro * 0.5/(2 * PI)
 	
 	
