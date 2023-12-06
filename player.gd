@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
 
-var giro_input = 0
+var cantidad_giro = 0
 
 
 
-func set_physics_process(delta):
+func _physics_process(delta):
 	move()
+	
 
 
 func move():
@@ -17,11 +18,14 @@ func giro():
 	giro_inputs()
 	
 	
+	rotation += cantidad_giro * 0.5/(2 * PI)
+	
+	
 
 
 func giro_inputs():
-	giro_input = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
-	
+	cantidad_giro = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
+	#print(cantidad_giro)
 
 
 
