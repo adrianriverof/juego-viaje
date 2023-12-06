@@ -68,5 +68,5 @@ func _on_Area2D_body_entered(body):
 	
 	body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
 	
-	
+	$CPUParticles2D.emitting = true
 
