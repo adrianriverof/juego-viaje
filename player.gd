@@ -1,6 +1,10 @@
 extends KinematicBody2D
 
 
+
+var bullet = preload("res://bullet.tscn")
+
+
 var cantidad_giro = 0 
 var cantidad_avance = 0 
 
@@ -14,9 +18,23 @@ var move_weight = 0.05
 func _physics_process(delta):
 	move()
 	
+func _input(event):
+	if Input.is_action_just_pressed("p1shoot"):
+		shoot()
 
 
+func shoot():
+	fire_bullet(rotation)
 
+
+func fire_bullet(bullet_direction):
+	
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = get_global_position()
+	bullet_instance.inertia = velocity * 0.01
+	bullet_instance.direction = bullet_direction
+	
+	get_tree().get_root().add_child(bullet_instance)
 
 
 
