@@ -20,6 +20,7 @@ var firerate_time = 0.1
 
 func _ready():
 	firerate_timer.wait_time = firerate_time
+	
 
 func _physics_process(delta):
 	move()
@@ -29,21 +30,29 @@ func _physics_process(delta):
 
 func mines():
 	
-	if Input.is_action_pressed("p1mine"):
+	if Input.is_action_pressed("p1mine") and !there_is_a_mine():
 		drop_mine()
-	if Input.is_action_just_released("p1mine"):
+		
+		
+	if Input.is_action_just_released("p1mine") and there_is_a_mine():
 		explode_mine()
+
+func there_is_a_mine():
+	if get_tree().get_root().get_node("p1mine"):
+		return true
 
 func drop_mine():
 	
 	var mine_instance = mine.instance()
 	mine_instance.position = get_global_position()
 	#bullet_instance.parent_velocity = velocity
+	mine_instance.name = "p1mine"
 	
 	get_tree().get_root().add_child(mine_instance)
 
 func explode_mine():
-	pass
+	get_tree().get_root().get_node("p1mine").queue_free()
+	print("explota")
 
 func shoot():
 	
