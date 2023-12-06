@@ -62,7 +62,11 @@ func _on_Area2D_body_entered(body):
 	
 	print((body.position - position).length())
 	
-	body.velocity += (body.position - position).normalized() * ( 10000 / pow((body.position - position).length(), 2 ) )
+	var distancia = (body.position - position).length()
+	
+	var explosion_radius = $Area2D/CollisionShape2D.shape.radius
+	
+	body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
 	
 	
 
