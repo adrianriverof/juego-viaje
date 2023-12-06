@@ -4,6 +4,7 @@ extends KinematicBody2D
 
 var bullet = preload("res://bullet.tscn")
 
+onready var firerate_timer = $firerate
 
 var cantidad_giro = 0 
 var cantidad_avance = 0 
@@ -19,12 +20,22 @@ func _physics_process(delta):
 	move()
 	
 func _input(event):
-	if Input.is_action_just_pressed("p1shoot"):
+	if Input.is_action_pressed("p1shoot") and check_firerate():
 		shoot()
+		
 
+func check_firerate():
+	if firerate_timer.is_stopped():
+		return true
+	else:
+		return false
 
 func shoot():
+	
+	firerate_timer.start()
+	
 	fire_bullet(rotation)
+
 
 
 func fire_bullet(bullet_direction):
