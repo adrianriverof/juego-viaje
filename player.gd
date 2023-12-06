@@ -22,15 +22,15 @@ func move():
 	
 func avance():
 	avance_inputs()
+	aplicar_velocidad_segun_angulo()
 	
-	
-	
-	velocity.x = lerp(velocity.x, cantidad_avance * speed * cos(rotation), 0.2)
-	velocity.y = lerp(velocity.y, cantidad_avance * speed * sin(rotation), 0.2)
+
+func aplicar_velocidad_segun_angulo():
+	var move_weight = 0.05
+	velocity.x = lerp(velocity.x, cantidad_avance * speed * cos(rotation), move_weight)
+	velocity.y = lerp(velocity.y, cantidad_avance * speed * sin(rotation), move_weight)
 	
 	move_and_slide(velocity)
-
-	
 
 func avance_inputs():
 	cantidad_avance = int(Input.is_action_pressed("p1up")) - int(Input.is_action_pressed("p1down"))
