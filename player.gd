@@ -31,7 +31,7 @@ func fire_bullet(bullet_direction):
 	
 	var bullet_instance = bullet.instance()
 	bullet_instance.position = get_global_position()
-	bullet_instance.inertia = velocity * 0.01
+	bullet_instance.parent_velocity = velocity 
 	bullet_instance.direction = bullet_direction
 	
 	get_tree().get_root().add_child(bullet_instance)
