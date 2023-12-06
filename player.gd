@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 
 var bullet = preload("res://bullet.tscn")
+var mine = preload("res://mine.tscn")
 
 onready var firerate_timer = $firerate
 
@@ -23,6 +24,26 @@ func _ready():
 func _physics_process(delta):
 	move()
 	shoot()
+	mines()
+
+
+func mines():
+	
+	if Input.is_action_pressed("p1mine"):
+		drop_mine()
+	if Input.is_action_just_released("p1mine"):
+		explode_mine()
+
+func drop_mine():
+	
+	var mine_instance = mine.instance()
+	mine_instance.position = get_global_position()
+	#bullet_instance.parent_velocity = velocity
+	
+	get_tree().get_root().add_child(mine_instance)
+
+func explode_mine():
+	pass
 
 func shoot():
 	
@@ -55,7 +76,7 @@ func fire_bullet(bullet_direction):
 
 
 
-func move():	
+func move():
 	avance()
 	giro()
 
