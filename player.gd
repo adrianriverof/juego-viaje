@@ -22,23 +22,25 @@ func _ready():
 
 func _physics_process(delta):
 	move()
-	
-func _input(event):
-	if Input.is_action_pressed("p1shoot") and check_firerate():
-		shoot()
-		
+	#shoot()
 
-func check_firerate():
-	if firerate_timer.is_stopped():
+func shoot():
+	
+	if player_is_pressing_shoot() and you_can_shoot():
+		firerate_timer.start()
+		fire_bullet(rotation)
+		
+func player_is_pressing_shoot():
+	if Input.is_action_pressed("p1shoot"):
 		return true
 	else:
 		return false
 
-func shoot():
-	
-	firerate_timer.start()
-	
-	fire_bullet(rotation)
+func you_can_shoot():
+	if firerate_timer.is_stopped():
+		return true
+	else:
+		return false
 
 
 
