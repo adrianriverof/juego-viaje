@@ -1,6 +1,9 @@
-sistema de daño
 
-enemigos
+
+
+enemigos (steering)
+
+sistema de daño
 
 como aparecen los enemigos
 

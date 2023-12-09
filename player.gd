@@ -28,6 +28,9 @@ func _physics_process(delta):
 	mines()
 
 
+
+
+
 func mines():
 	
 	if Input.is_action_pressed("p1mine") and !there_is_a_mine():
@@ -53,7 +56,7 @@ func drop_mine():
 
 func explode_mine():
 	get_tree().get_root().get_node("p1mine").explode()
-	print("explota")
+	
 
 func shoot():
 	
