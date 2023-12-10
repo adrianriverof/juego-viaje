@@ -67,6 +67,9 @@ func _on_Area2D_body_entered(body):
 	var explosion_radius = $Area2D/CollisionShape2D.shape.radius
 	
 	
+	if body.is_in_group("enemy"):
+		body.take_damage(1000)
+	
 	if body.is_in_group("player"):
 		body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
 	

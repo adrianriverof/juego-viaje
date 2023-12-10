@@ -39,7 +39,6 @@ func _physics_process(delta):
 
 
 func _on_bullet_body_entered(body):
-	print("bala detecta cuerpo")
 	
 	if body.is_in_group("enemy"):
 		print("es un enemigo")
