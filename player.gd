@@ -123,7 +123,10 @@ func giro_inputs():
 	cantidad_giro = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
 	
 
-
+func take_damage(damage):
+	life -= damage
+	
+	print("Dañado........")
 
 
 

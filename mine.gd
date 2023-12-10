@@ -12,6 +12,8 @@ var parent_velocity = Vector2.ZERO
 var inertia = Vector2(0,0)
 var velocity = Vector2(0,0)
 
+var damage = 100
+
 
 func _ready():
 	calcula_inercia()
@@ -68,7 +70,7 @@ func _on_Area2D_body_entered(body):
 	
 	
 	if body.is_in_group("enemy"):
-		body.take_damage(1000)
+		body.take_damage(damage)
 	
 	if body.is_in_group("player"):
 		body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius

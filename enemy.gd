@@ -8,6 +8,8 @@ var player_direction = Vector2.ZERO
 var speed = 50
 var life = 3
 
+var damage = 1
+
 
 func _ready():
 	print(player)
@@ -48,3 +50,9 @@ func check_if_dead():
 
 
 
+
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("player"):
+		body.take_damage(damage)
+	
