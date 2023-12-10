@@ -31,8 +31,20 @@ func move_to_the_player():
 	move_and_slide(player_direction * speed)
 	
 	
+func take_damage(damage):
+	life -= damage
+	
+	check_if_dead()
+	
+func check_if_dead():
+	
+	print("checkeamso")
+	if life <= 0:
+		queue_free()
 	
 	
-	
-	
-	
+
+
+
+
+

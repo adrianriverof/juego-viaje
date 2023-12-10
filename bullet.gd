@@ -36,3 +36,15 @@ func _physics_process(delta):
 	translate(velocity)
 	
 	
+
+
+func _on_bullet_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(damage)
+		
+		queue_free()
+
+
+
+
+

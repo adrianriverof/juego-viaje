@@ -13,5 +13,7 @@ script = ExtResource( 2 )
 modulate = Color( 1, 0.631373, 0.631373, 1 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"enemy",
+]]
 shape = SubResource( 1 )
