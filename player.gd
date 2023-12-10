@@ -30,8 +30,7 @@ func _physics_process(delta):
 		move()
 		shoot()
 		mines()
-
-
+	
 
 
 

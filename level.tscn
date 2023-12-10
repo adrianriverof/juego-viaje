@@ -30,4 +30,16 @@ position = Vector2( -7.5509, -713.569 )
 [node name="enemy_spawn" type="Timer" parent="."]
 autostart = true
 
+[node name="you win" type="RichTextLabel" parent="."]
+visible = false
+margin_left = -67.959
+margin_top = -124.591
+margin_right = 121.041
+margin_bottom = -76.5914
+rect_scale = Vector2( 2, 2 )
+text = "YOU WIN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="timeout" from="enemy_spawn" to="." method="_on_enemy_spawn_timeout"]

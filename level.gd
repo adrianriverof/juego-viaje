@@ -13,7 +13,8 @@ func numero_entre_1_y_(number):
 func spawn_enemy():
 	drop_enemy()
 	print(score)
-	
+	if score >= 20:
+		$"you win".visible = true
 
 
 func drop_enemy():
@@ -22,9 +23,10 @@ func drop_enemy():
 	enemy_instance.player = get_node("player")
 	
 	get_tree().get_root().add_child(enemy_instance)
-
 	
 
 
 func _on_enemy_spawn_timeout():
 	spawn_enemy()
+
+
