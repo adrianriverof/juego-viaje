@@ -44,25 +44,32 @@ func _physics_process(delta):
 
 func explode():
 	
+	frena_la_mina()
+	
+	activa_el_area_de_dano()
+	
+	la_mina_se_destruye_en_un_rato()
+	
+
+
+func frena_la_mina():
 	velocity = Vector2.ZERO
+
+func activa_el_area_de_dano():
 	$Area2D/CollisionShape2D.disabled = false
-	
-	#print($Area2D/CollisionShape2D.get_overlapping_bodies())
-	
-	
+
+func la_mina_se_destruye_en_un_rato():
 	$delete_timer.start()
 
 
 func _on_delete_timer_timeout():
 	queue_free()
+	
 
 
 
 func _on_Area2D_body_entered(body):
 	
-	print(body.position - position)
-	
-	print((body.position - position).length())
 	
 	var distancia = (body.position - position).length()
 	
