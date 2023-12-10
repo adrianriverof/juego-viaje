@@ -4,7 +4,7 @@ extends Area2D
 
 
 var direction
-var direction_vect = Vector2(0,0)
+var direction_vect = Vector2(-1,0)
 var speed = 5
 var factor_inercia = 0.01
 
