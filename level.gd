@@ -34,9 +34,11 @@ func drop_enemy():
 
 
 func calculate_position_to_spawn_enemy():
-	return get_node("spawn_positions").get_node(str(numero_entre_1_y_(4))).position
+	var spawn_node = get_node("spawn_positions")
+	var quantity_of_spawn_points = spawn_node.get_child_count()
+	var posicion_aleatoria = numero_entre_1_y_(quantity_of_spawn_points)
+	
+	return spawn_node.get_node(str(posicion_aleatoria)).position
 
 func _on_enemy_spawn_timeout():
 	spawn_enemy()
-
-
