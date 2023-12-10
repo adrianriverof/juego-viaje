@@ -44,7 +44,7 @@ func _physics_process(delta):
 
 func explode():
 	
-	
+	velocity = Vector2.ZERO
 	$Area2D/CollisionShape2D.disabled = false
 	
 	#print($Area2D/CollisionShape2D.get_overlapping_bodies())
