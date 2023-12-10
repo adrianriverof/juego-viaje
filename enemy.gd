@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-onready var player = get_parent().get_node("player")
+#onready var player = get_parent().get_node("player")
+var player
 
 var player_position = Vector2.ZERO
 var player_direction = Vector2.ZERO

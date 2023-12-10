@@ -4,11 +4,9 @@
 enemigos (steering) **
 
 sistema de daño a enemigos *
-sistema de daño jugador
+sistema de daño jugador *
 
-
-
-como aparecen los enemigos
+como aparecen los enemigos*
 
 
 
@@ -20,7 +18,8 @@ modos coop y comp
 
 EXTRA:
 
-arreglar movimiento de la mina
+arreglar movimiento de la mina*
+
 reducir el area de impacto de daño de la mina
 
 

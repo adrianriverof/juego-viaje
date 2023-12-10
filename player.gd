@@ -26,9 +26,10 @@ func _ready():
 	
 
 func _physics_process(delta):
-	move()
-	shoot()
-	mines()
+	if life > 0:
+		move()
+		shoot()
+		mines()
 
 
 
@@ -126,7 +127,11 @@ func giro_inputs():
 func take_damage(damage):
 	life -= damage
 	
+	
 	print("Dañado........")
+	
+	
+	#queue_free()
 
 
 
