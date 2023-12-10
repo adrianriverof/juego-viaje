@@ -66,7 +66,9 @@ func _on_Area2D_body_entered(body):
 	
 	var explosion_radius = $Area2D/CollisionShape2D.shape.radius
 	
-	body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
+	
+	if body.is_in_group("player"):
+		body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
 	
 	$CPUParticles2D.emitting = true
 
