@@ -1,14 +1,24 @@
 
 
 
-enemigos (steering)
+enemigos (steering) **
 
 sistema de daño
 
+
+
 como aparecen los enemigos
+
+
+
+items, lo necesario para un buen loop
 
 modos coop y comp
 
-items
+
+
+EXTRA:
+
+arreglar movimiento de la mina
 
 

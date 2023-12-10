@@ -6,14 +6,13 @@
 [node name="level" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -44.4282, 6.85753 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="player"]
 current = true
 zoom = Vector2( 2, 2 )
 
 [node name="enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 822.261, 333.709 )
+position = Vector2( 863.791, 303.505 )
 
 [node name="enemy2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 672.759, 501.899 )

@@ -10,6 +10,8 @@ var parent_velocity = Vector2.ZERO
 var inertia = Vector2(0,0)
 var velocity = Vector2(0,0)
 
+var damage = 1
+
 
 func _ready():
 	calcula_inercia()

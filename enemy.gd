@@ -6,7 +6,7 @@ var player_position = Vector2.ZERO
 var player_direction = Vector2.ZERO
 
 var speed = 50
-
+var life = 3
 
 
 func _ready():
