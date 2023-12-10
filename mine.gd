@@ -5,14 +5,17 @@ extends Area2D
 
 var direction
 var direction_vect = Vector2(-1,0)
-var speed = 5
-var factor_inercia = 0.01
+
 
 var parent_velocity = Vector2.ZERO
 var inertia = Vector2(0,0)
 var velocity = Vector2(0,0)
 
 var damage = 100
+var potencia_impulso = 2000
+var speed = 5
+var factor_inercia = 0.01
+var factor_amortiguamiento = 1
 
 
 func _ready():
@@ -70,17 +73,34 @@ func _on_delete_timer_timeout():
 
 func _on_Area2D_body_entered(body):
 	
-	
-	var distancia = (body.position - position).length()
-	
-	var explosion_radius = $Area2D/CollisionShape2D.shape.radius
-	
-	
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
 	
 	if body.is_in_group("player"):
-		body.velocity += (body.position - position).normalized() * (2000) * (-distancia + explosion_radius)/explosion_radius
+		aplicar_impulso(body)
 	
+	emitir_efectos_explosion()
+
+
+func aplicar_impulso(body):
+	body.velocity +=  direccion_impulso(body) * potencia_impulso * amortiguacion_por_distancia(body)
+	
+func direccion_impulso(body):
+	return (body.position - position).normalized()
+
+func amortiguacion_por_distancia(body):
+	
+	var distancia = (body.position - position).length()
+	var explosion_radius = $Area2D/CollisionShape2D.shape.radius
+	
+	return (explosion_radius - distancia) / explosion_radius * factor_amortiguamiento
+
+func emitir_efectos_explosion():
 	$CPUParticles2D.emitting = true
+	
+
+
+
+
+
 
