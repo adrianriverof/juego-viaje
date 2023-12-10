@@ -17,7 +17,7 @@ var speed = 500
 var move_weight = 0.05
 
 var life = 1
-
+var score = 0
 
 var firerate_time = 0.1
 
@@ -134,4 +134,10 @@ func take_damage(damage):
 	#queue_free()
 
 
+func take_points(points):
+	score += points
+	
+	get_parent().score = score
+
+	
 

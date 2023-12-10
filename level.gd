@@ -2,6 +2,8 @@ extends Node2D
 
 onready var enemy = preload("res://enemy.tscn")
 
+var score = 0
+
 
 func numero_entre_1_y_(number):  
 	randomize()    
@@ -10,6 +12,7 @@ func numero_entre_1_y_(number):
 
 func spawn_enemy():
 	drop_enemy()
+	print(score)
 	
 
 

@@ -13,8 +13,8 @@ var damage = 1
 
 
 func _ready():
-	print(player)
-
+	#print(player)
+	pass
 
 func _physics_process(delta):
 	
@@ -42,7 +42,8 @@ func take_damage(damage):
 func check_if_dead():
 	
 	print("checkeamso")
-	if life <= 0:
+	if life <= 0: 
+		player.take_points(1)
 		queue_free()
 	
 	
