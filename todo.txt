@@ -34,9 +34,8 @@ progresion (waves?)
 
 variedad de enemigos
 [Antes de crear nuevos tipos de enemigo debería asegurarme de que los enemigos van a funcionar definitivamente así]
-
 	- coordinados rápidos (en fila?)(no muy agresivos)
-	- en espiral
+	*- en espiral
 	- con movimientos algo erráticos
 	- uno intenta flanquear
 	- dispara

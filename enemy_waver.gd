@@ -12,12 +12,8 @@ var life = 3
 var damage = 1
 
 
-## ATENCION DE BALANCE: 
-# este enemigo ORBITA
-# Con 90º NUNCA tocará al jugador, órbita perfecta
-# Con menos se acercará, e inevitablemente tocará al jugador
-# cuanto más cerrado sea el ángulo más directo irá
-# cuanto más orbite, más rápido podemos hacer que vaya sin que sea injusto
+var angle_orientation = 1
+
 
 
 func _ready():
@@ -39,7 +35,7 @@ func get_player_direction():
 	#print(player_direction)
 	
 func adjust_self_direction():
-	player_direction = player_direction.rotated(deg2rad(50))
+	player_direction = player_direction.rotated(deg2rad(70* angle_orientation))
 
 func move_to_the_player():
 	
@@ -64,3 +60,7 @@ func _on_hurtbox_body_entered(body):
 	if body.is_in_group("player"):
 		body.take_damage(damage)
 	
+
+
+func _on_change_angle_timeout():
+	angle_orientation *= -1

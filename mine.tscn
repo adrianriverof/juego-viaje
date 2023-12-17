@@ -29,7 +29,6 @@ disabled = true
 shape = SubResource( 2 )
 
 [node name="delete_timer" type="Timer" parent="."]
-wait_time = 30.0
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
