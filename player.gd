@@ -157,7 +157,7 @@ func move():
 func avance():
 	avance_inputs()
 	aplicar_velocidad_segun_angulo()
-	
+
 
 func aplicar_velocidad_segun_angulo():
 	

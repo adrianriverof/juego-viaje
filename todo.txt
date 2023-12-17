@@ -29,8 +29,12 @@ Power ups (los sueltan enemigos?)(siempre son una mejora de tus anteriores poder
 Pensar estética
 Pensar sonido
 progresion (waves?)
+	- Hacer un diagrama de esos (UML?) para ver bien la estructura subyacente que seguirá el juego.
+
 
 variedad de enemigos
+[Antes de crear nuevos tipos de enemigo debería asegurarme de que los enemigos van a funcionar definitivamente así]
+
 	- coordinados rápidos (en fila?)(no muy agresivos)
 	- en espiral
 	- con movimientos algo erráticos

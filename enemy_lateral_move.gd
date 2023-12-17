@@ -6,19 +6,20 @@ var player
 var player_position = Vector2.ZERO
 var player_direction = Vector2.ZERO
 
-var speed = 100
+var speed = 1000
 var life = 3
 
 var damage = 1
 
 
 func _ready():
-	#print(player)
-	pass
+	if player == null:
+		player = get_parent().get_node("player")
 
 func _physics_process(delta):
 	
 	get_player_direction()
+	adjust_self_direction()
 	move_to_the_player()
 	
 func get_player_direction():
@@ -29,6 +30,9 @@ func get_player_direction():
 	
 	#print(player_direction)
 	
+func adjust_self_direction():
+	player_direction = player_direction.rotated(deg2rad(80))
+
 func move_to_the_player():
 	
 	move_and_slide(player_direction * speed)
