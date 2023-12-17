@@ -32,7 +32,7 @@ func get_player_direction():
 	
 	player_direction = (player.position - self.position).normalized()
 	
-	#print(player_direction)
+	#print(player_direction)	- dispara
 	
 func adjust_self_direction():
 	player_direction = player_direction.rotated(deg2rad(70* angle_orientation))

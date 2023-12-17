@@ -37,7 +37,7 @@ func _physics_process(delta):
 		move()
 		#shoot()
 		mines()
-		#shoot_laser()
+		shoot_laser()
 		shoot_triple()
 	
 

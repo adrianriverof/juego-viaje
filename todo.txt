@@ -25,6 +25,14 @@ Power ups (los sueltan enemigos?)(siempre son una mejora de tus anteriores poder
 	*- triple disparo
 	*- más daño (un simple cambio de valor, no requiere código)
 
+variedad de enemigos
+[Antes de crear nuevos tipos de enemigo debería asegurarme de que los enemigos van a funcionar definitivamente así]
+	- coordinados rápidos (en fila?)(no muy agresivos)
+	*- en espiral
+	*- cambia direcciones cada tantos seg (hacer aleatorio?)
+	- dispara
+(el resto de variedad la dará hacer variaciones en parámetros de vida, daño, ángulo, velocidades, ...)
+
 
 Pensar estética
 Pensar sonido
@@ -32,20 +40,14 @@ progresion (waves?)
 	- Hacer un diagrama de esos (UML?) para ver bien la estructura subyacente que seguirá el juego.
 
 
-variedad de enemigos
-[Antes de crear nuevos tipos de enemigo debería asegurarme de que los enemigos van a funcionar definitivamente así]
-	- coordinados rápidos (en fila?)(no muy agresivos)
-	*- en espiral
-	- con movimientos algo erráticos
-	- uno intenta flanquear
-	- dispara
-	- Tiene minas (duro)
-	- jefe gordo
-	- trazan laser entre ellos
-
 
 
 -- FASE III:
+
+obstáculos
+
+modo coop
+modo vs
 
 Más power ups:
 	- mina con balas
@@ -54,10 +56,17 @@ Más power ups:
 	- mina permanente que destruye enemigos que toquen
 	- torreta
 	
-modo coop
-modo vs
+Más enemigos: (¿realmente necesario?)
+	- con movimientos algo erráticos
+	- uno intenta flanquear
+	- Tiene minas (duro)
+	- jefe gordo
+	- trazan laser entre ellos
 
-obstáculos
+
+
+
+
 
 
 
