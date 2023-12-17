@@ -25,6 +25,7 @@ Power ups (los sueltan enemigos?)(siempre son una mejora de tus anteriores poder
 	*- triple disparo
 	*- más daño (un simple cambio de valor, no requiere código)
 
+
 variedad de enemigos
 [Antes de crear nuevos tipos de enemigo debería asegurarme de que los enemigos van a funcionar definitivamente así]
 	- coordinados rápidos (en fila?)(no muy agresivos)

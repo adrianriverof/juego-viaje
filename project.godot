@@ -14,6 +14,14 @@ config/name="Juego Viaje"
 run/main_scene="res://level.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=600
+window/size/test_width=1080
+window/size/test_height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 p1right={
@@ -57,4 +65,5 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

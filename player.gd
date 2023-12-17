@@ -35,10 +35,10 @@ func _ready():
 func _physics_process(delta):
 	if life > 0:
 		move()
-		#shoot()
+		shoot()
 		mines()
-		shoot_laser()
-		shoot_triple()
+		#shoot_laser()
+		#shoot_triple()
 	
 
 
