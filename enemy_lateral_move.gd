@@ -29,6 +29,7 @@ func _physics_process(delta):
 	get_player_direction()
 	adjust_self_direction()
 	move_to_the_player()
+	rotation = player_direction.angle()+PI/2 #- deg2rad(50)
 	
 func get_player_direction():
 	
