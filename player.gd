@@ -3,6 +3,9 @@ extends KinematicBody2D
 
 
 var bullet = preload("res://bullet.tscn")
+var laser = preload("res://laser.tscn")
+
+
 var mine = preload("res://mine.tscn")
 
 onready var firerate_timer = $firerate
@@ -20,6 +23,10 @@ var life = 1
 var score = 0
 
 var firerate_time = 0.1
+var laser_firerate_time = 0.01
+var triple_firerate_time = 0.1
+
+var triple_separation = 25
 
 func _ready():
 	firerate_timer.wait_time = firerate_time
@@ -28,8 +35,10 @@ func _ready():
 func _physics_process(delta):
 	if life > 0:
 		move()
-		shoot()
+		#shoot()
 		mines()
+		#shoot_laser()
+		shoot_triple()
 	
 
 
@@ -62,6 +71,7 @@ func explode_mine():
 	
 
 func shoot():
+	firerate_timer.wait_time = firerate_time
 	
 	if player_is_pressing_shoot() and you_can_shoot():
 		firerate_timer.start()
@@ -79,6 +89,29 @@ func you_can_shoot():
 	else:
 		return false
 
+func shoot_triple():
+	firerate_timer.wait_time = triple_firerate_time
+	
+	if player_is_pressing_shoot() and you_can_shoot():
+		firerate_timer.start()
+		fire_triple(rotation)
+
+func shoot_laser():
+	
+	firerate_timer.wait_time = laser_firerate_time
+	
+	if player_is_pressing_shoot() and you_can_shoot():
+		firerate_timer.start()
+		fire_laser(rotation)
+
+
+func fire_laser(laser_rotation):
+	var laser_instance = laser.instance()
+	laser_instance.position = get_global_position()
+	#laser_instance.parent_velocity = velocity 
+	laser_instance.rotation = laser_rotation
+	
+	get_tree().get_root().add_child(laser_instance)
 
 
 func fire_bullet(bullet_direction):
@@ -89,6 +122,30 @@ func fire_bullet(bullet_direction):
 	bullet_instance.direction = bullet_direction
 	
 	get_tree().get_root().add_child(bullet_instance)
+
+func fire_triple(bullet_direction):
+	
+	var bullet_instance = bullet.instance()
+	bullet_instance.position = get_global_position()
+	bullet_instance.parent_velocity = velocity 
+	bullet_instance.direction = bullet_direction
+	
+	get_tree().get_root().add_child(bullet_instance)
+	
+	var bullet_instance2 = bullet.instance()
+	bullet_instance2.position = get_global_position() + Vector2(-20,triple_separation).rotated(rotation)
+	bullet_instance2.parent_velocity = velocity 
+	bullet_instance2.direction = bullet_direction
+	
+	get_tree().get_root().add_child(bullet_instance2)
+	
+	var bullet_instance3 = bullet.instance()
+	bullet_instance3.position = get_global_position() + Vector2(-20,-triple_separation).rotated(rotation)
+	bullet_instance3.parent_velocity = velocity 
+	bullet_instance3.direction = bullet_direction
+	
+	get_tree().get_root().add_child(bullet_instance3)
+
 
 
 

@@ -11,6 +11,11 @@ func numero_entre_1_y_(number):
 	return (randi() % number + 1)
 
 
+func _on_enemy_spawn_timeout():
+	spawn_enemy()
+
+
+
 func spawn_enemy():
 	
 	drop_enemy()
@@ -18,6 +23,7 @@ func spawn_enemy():
 	print(score)
 	
 	check_score()
+
 
 func check_score():
 	if score >= 20:
@@ -39,6 +45,3 @@ func calculate_position_to_spawn_enemy():
 	var posicion_aleatoria = numero_entre_1_y_(quantity_of_spawn_points)
 	
 	return spawn_node.get_node(str(posicion_aleatoria)).position
-
-func _on_enemy_spawn_timeout():
-	spawn_enemy()

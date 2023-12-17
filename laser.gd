@@ -2,22 +2,28 @@ extends Area2D
 
 
 var direction
-var direction_vect = Vector2(1,0)
-var speed = 10 # tal vez 20
-var factor_inercia = 0.02
+var direction_vect = Vector2(0,0)
+var speed = 0
+var factor_inercia = 0
 
 var parent_velocity = Vector2.ZERO
 var inertia = Vector2(0,0)
 var velocity = Vector2(0,0)
 
-var damage = 1
+var damage = 10
+
+var life_time = 0.3
 
 
 func _ready():
+	
+	$destroy.wait_time = life_time
+	$destroy.start()
+	
 	calcula_inercia()
-	rota_la_direccion()
+	#rota_la_direccion()
 	aplica_inercia_y_velocidad()
-	rotacion_general()
+	#rotacion_general()
 	
 func calcula_inercia():
 	inertia = parent_velocity * factor_inercia
@@ -44,9 +50,13 @@ func _on_bullet_body_entered(body):
 		print("es un enemigo")
 		body.take_damage(damage)
 		
-		queue_free()
+		#queue_free()
 
 
 
 
 
+
+
+func _on_destroy_timeout():
+	queue_free()

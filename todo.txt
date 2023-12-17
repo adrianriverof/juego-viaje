@@ -1,26 +1,62 @@
 
 
+-- FASE I
 
 enemigos (steering) **
-
 sistema de daño a enemigos *
 sistema de daño jugador *
-
 como aparecen los enemigos*
-
-
-
 items, lo necesario para un buen loop
-
 modos coop y comp
 
-
-
-EXTRA:
+Extra:
 
 arreglar movimiento de la mina*
-
 reducir el area de impacto de daño de la mina
+
+
+-- FASE II
+
+
+Power ups (los sueltan enemigos?)(siempre son una mejora de tus anteriores poderes)
+	- mina
+	- mina de contacto (no)
+	*- laser
+	*- triple disparo
+	*- más daño (un simple cambio de valor, no requiere código)
+
+
+Pensar estética
+Pensar sonido
+progresion (waves?)
+
+variedad de enemigos
+	- coordinados rápidos (en fila?)(no muy agresivos)
+	- en espiral
+	- con movimientos algo erráticos
+	- uno intenta flanquear
+	- dispara
+	- Tiene minas (duro)
+	- jefe gordo
+	- trazan laser entre ellos
+
+
+
+-- FASE III:
+
+Más power ups:
+	- mina con balas
+	- mina con laser
+	- mina te da dash con invencibilidad
+	- mina permanente que destruye enemigos que toquen
+	- torreta
+	
+modo coop
+modo vs
+
+obstáculos
+
+
 
 
 
