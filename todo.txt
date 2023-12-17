@@ -35,15 +35,19 @@ variedad de enemigos
 (el resto de variedad la dará hacer variaciones en parámetros de vida, daño, ángulo, velocidades, ...)
 
 
-Pensar estética
+Pensar estética*
+
 Pensar sonido
 progresion (waves?)
 	- Hacer un diagrama de esos (UML?) para ver bien la estructura subyacente que seguirá el juego.
 
-
+BUG: mina al volver a apretar el boton, añadir también un temporizador
 
 
 -- FASE III:
+
+
+Completar arte
 
 obstáculos
 
