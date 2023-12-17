@@ -29,6 +29,7 @@ disabled = true
 shape = SubResource( 2 )
 
 [node name="delete_timer" type="Timer" parent="."]
+wait_time = 30.0
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -49,5 +50,10 @@ angle_random = 1.0
 scale_amount = 10.0
 anim_speed_random = 0.12
 
+[node name="desactivador_area_dano" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="delete_timer" to="." method="_on_delete_timer_timeout"]
+[connection signal="timeout" from="desactivador_area_dano" to="." method="_on_desactivador_area_dano_timeout"]

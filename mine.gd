@@ -53,6 +53,7 @@ func explode():
 	
 	la_mina_se_destruye_en_un_rato()
 	
+	emitir_efectos_explosion()
 
 
 func frena_la_mina():
@@ -60,10 +61,14 @@ func frena_la_mina():
 
 func activa_el_area_de_dano():
 	$Area2D/CollisionShape2D.disabled = false
+	$desactivador_area_dano.start()
+
+func _on_desactivador_area_dano_timeout():
+	$Area2D/CollisionShape2D.disabled = true 
+
 
 func la_mina_se_destruye_en_un_rato():
 	$delete_timer.start()
-
 
 func _on_delete_timer_timeout():
 	queue_free()
@@ -79,7 +84,7 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		aplicar_impulso(body)
 	
-	emitir_efectos_explosion()
+	
 
 
 func aplicar_impulso(body):
@@ -98,9 +103,5 @@ func amortiguacion_por_distancia(body):
 func emitir_efectos_explosion():
 	$CPUParticles2D.emitting = true
 	
-
-
-
-
 
 
