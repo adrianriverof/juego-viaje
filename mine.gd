@@ -47,13 +47,16 @@ func _physics_process(delta):
 
 func explode():
 	
-	frena_la_mina()
+	if $delete_timer.is_stopped():
 	
-	activa_el_area_de_dano()
 	
-	la_mina_se_destruye_en_un_rato()
-	
-	emitir_efectos_explosion()
+		frena_la_mina()
+		
+		activa_el_area_de_dano()
+		
+		la_mina_se_destruye_en_un_rato()
+		
+		emitir_efectos_explosion()
 
 
 func frena_la_mina():
@@ -105,3 +108,7 @@ func emitir_efectos_explosion():
 	
 
 
+
+
+func _on_auto_explode_timer_timeout():
+	explode()

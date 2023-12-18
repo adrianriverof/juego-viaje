@@ -50,3 +50,7 @@ func _on_bullet_body_entered(body):
 
 
 
+
+
+func _on_auto_despawn_timeout():
+	queue_free()
