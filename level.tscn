@@ -45,16 +45,46 @@ zoom = Vector2( 2, 2 )
 [node name="spawn_positions" type="Node2D" parent="."]
 
 [node name="1" type="Position2D" parent="spawn_positions"]
-position = Vector2( -1166.63, 0 )
+position = Vector2( -788, 6 )
 
 [node name="2" type="Position2D" parent="spawn_positions"]
 position = Vector2( 11.3265, 706.018 )
 
 [node name="3" type="Position2D" parent="spawn_positions"]
-position = Vector2( 1174.18, 11.3264 )
+position = Vector2( 772, 5 )
+
+[node name="6" type="Position2D" parent="spawn_positions"]
+position = Vector2( -343, -724 )
 
 [node name="4" type="Position2D" parent="spawn_positions"]
-position = Vector2( -7.5509, -713.569 )
+position = Vector2( 5, -739 )
+
+[node name="5" type="Position2D" parent="spawn_positions"]
+position = Vector2( 350, -716 )
+
+[node name="7" type="Position2D" parent="spawn_positions"]
+position = Vector2( -804, -421 )
+
+[node name="8" type="Position2D" parent="spawn_positions"]
+position = Vector2( -784, 363 )
+
+[node name="9" type="Position2D" parent="spawn_positions"]
+position = Vector2( -767, 740 )
+
+[node name="10" type="Position2D" parent="spawn_positions"]
+position = Vector2( -291, 756 )
+
+[node name="11" type="Position2D" parent="spawn_positions"]
+position = Vector2( 765, -434 )
+
+[node name="12" type="Position2D" parent="spawn_positions"]
+position = Vector2( 794, 379 )
+
+[node name="13" type="Position2D" parent="spawn_positions"]
+position = Vector2( 373, 782 )
+
+[node name="14" type="Position2D" parent="spawn_positions"]
+position = Vector2( 754, 719 )
 
 [node name="enemy_spawn" type="Timer" parent="."]
 autostart = true
