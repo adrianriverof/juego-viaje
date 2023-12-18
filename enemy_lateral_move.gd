@@ -47,8 +47,8 @@ func move_to_the_player():
 	move_and_slide(player_direction * speed)
 	
 	
-func take_damage(damage):
-	life -= damage
+func take_damage(damage_taken):
+	life -= damage_taken
 	
 	check_if_dead()
 	
