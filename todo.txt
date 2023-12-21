@@ -38,10 +38,22 @@ variedad de enemigos
 Pensar estética*
 
 Pensar sonido
+
+
+
+
+
 progresion (waves?)
 	- Hacer un diagrama de esos (UML?) para ver bien la estructura subyacente que seguirá el juego.
 
-BUG: mina al volver a apretar el boton, añadir también un temporizador
+- FASE II y media:
+
+sistema de power ups
+sistema de dropeo de power ups por parte de los enemigos
+sistema de chequeo de puntaje/tiempo para ajustar la dificultad a lo largo del nivel
+sistema de escalado de enemigos (sus stats)(al menos considerar)
+
+
 
 
 -- FASE III:

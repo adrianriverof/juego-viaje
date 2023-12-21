@@ -28,6 +28,11 @@ var triple_firerate_time = 0.1
 
 var triple_separation = 25
 
+
+var active_power_up = "triple"
+
+
+
 func _ready():
 	firerate_timer.wait_time = firerate_time
 	
@@ -35,13 +40,22 @@ func _ready():
 func _physics_process(delta):
 	if life > 0:
 		move()
-		shoot()
+		choose_shoot_type_and_shoot()
 		mines()
 		#shoot_laser()
 		#shoot_triple()
 	
 
 
+func choose_shoot_type_and_shoot():
+	
+	match active_power_up:
+		"laser": shoot_laser()
+		"triple": shoot_triple()
+		
+		_: shoot_normal()
+			
+	
 
 func mines():
 	
@@ -68,9 +82,9 @@ func drop_mine():
 
 func explode_mine():
 	get_tree().get_root().get_node("p1mine").explode()
-	
 
-func shoot():
+
+func shoot_normal():
 	firerate_timer.wait_time = firerate_time
 	
 	if player_is_pressing_shoot() and you_can_shoot():
@@ -95,6 +109,7 @@ func shoot_triple():
 	if player_is_pressing_shoot() and you_can_shoot():
 		firerate_timer.start()
 		fire_triple(rotation)
+
 
 func shoot_laser():
 	
