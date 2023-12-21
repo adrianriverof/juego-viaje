@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var powerup_laser = preload("res://powerup_laser.tscn")
+
 #onready var player = get_parent().get_node("player")
 var player
 
@@ -44,8 +46,27 @@ func check_if_dead():
 	
 	print("checkeamso")
 	if life <= 0: 
-		player.take_points(1)
-		queue_free()
+		destroy()
+		
+		
+	
+func destroy():
+	player.take_points(1)
+	spawn_powerup()
+	
+	queue_free()
+	
+func spawn_powerup():
+	var rng = RandomNumberGenerator.new()
+	var number = rng.randi_range(1,6)
+	print("ha tirado un dado y ha salido: ", number)
+	
+	if number == 6:
+		print("es 6")
+		
+		var poweruplaser_instance = powerup_laser.instance()
+		poweruplaser_instance.position = self.position
+		get_tree().get_root().add_child(poweruplaser_instance)
 	
 
 
