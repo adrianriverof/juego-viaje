@@ -57,8 +57,11 @@ func destroy():
 	queue_free()
 	
 func spawn_powerup():
+	
 	var rng = RandomNumberGenerator.new()
-	var number = rng.randi_range(1,6)
+	rng.randomize() # al final es tanto lío que vo a acabar volviendo a lo de antes
+	var number = rng.randi_range(1,20)
+	
 	print("ha tirado un dado y ha salido: ", number)
 	
 	if number == 6:
