@@ -6,7 +6,7 @@ var score = 0
 
 
 
-func numero_entre_1_y_(number):  
+func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, to_inclusive)
 	randomize()    
 	return (randi() % number + 1)
 
