@@ -29,9 +29,20 @@ var triple_firerate_time = 0.1
 var triple_separation = 25
 
 
-var active_power_up = "triple"
+var active_power_up = ""
+var powerup_time_default_seconds = 10
 
 
+func get_powerup(name, duration_seconds = 10):
+	
+	active_power_up = name
+	$powerup_timer.wait_time = duration_seconds
+	$powerup_timer.start()
+
+
+func _on_powerup_timer_timeout():
+	active_power_up = ""
+	
 
 func _ready():
 	firerate_timer.wait_time = firerate_time
