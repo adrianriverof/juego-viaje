@@ -66,6 +66,8 @@ func spawn_powerup():
 	
 	if number == 6:
 		print("es 6")
+		# estos powerups tal vez deberían estar balanceados de una manera más global
+		# como que el juego aumente o reduzca las posibilidades de que se genere
 		
 		var poweruplaser_instance = powerup_laser.instance()
 		poweruplaser_instance.position = self.position
