@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 onready var powerup_laser = preload("res://powerup_laser.tscn")
+onready var powerup_triple = preload("res://powerup_triple.tscn")
+
 
 #onready var player = get_parent().get_node("player")
 var player
@@ -72,6 +74,13 @@ func spawn_powerup():
 		var poweruplaser_instance = powerup_laser.instance()
 		poweruplaser_instance.position = self.position
 		get_tree().get_root().add_child(poweruplaser_instance)
+		
+	elif number == 7:
+		
+		var poweruptriple_instance = powerup_triple.instance()
+		poweruptriple_instance.position = self.position
+		get_tree().get_root().add_child(poweruptriple_instance)
+		
 	
 
 
