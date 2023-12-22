@@ -55,7 +55,7 @@ func check_score():
 	if score >= 1000:
 		$"you win".visible = true
 	elif score >= 50:
-		pass #enemy.speed = 1000
+		enemy_speed = 200
 	elif score >= 20:
 		change_enemy_spawn_time(1)
 		
@@ -76,9 +76,12 @@ func drop_enemy():
 		enemy_instance.position = calculate_position_to_spawn_enemy()
 		enemy_instance.player = get_node("player")
 		
-		enemy_instance.damage = enemy_damage
-		enemy_instance.speed = enemy_speed
-		enemy_instance.life = enemy_life
+		
+		enemy_instance.damage = lateral_damage
+		enemy_instance.speed = lateral_speed
+		enemy_instance.angle = lateral_angle
+		enemy_instance.life = lateral_life
+		
 		
 		get_tree().get_root().add_child(enemy_instance)
 
@@ -98,16 +101,15 @@ func drop_enemy():
 		
 	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
 		
-		var enemy_instance = enemy_lateral_move.instance()
+		var enemy_instance = enemy.instance()
 	
 		enemy_instance.position = calculate_position_to_spawn_enemy()
 		enemy_instance.player = get_node("player")
 		
-		enemy_instance.damage = lateral_damage
-		enemy_instance.speed = lateral_speed
-		enemy_instance.angle = lateral_angle
-		enemy_instance.life = lateral_life
 		
+		enemy_instance.damage = enemy_damage
+		enemy_instance.speed = enemy_speed
+		enemy_instance.life = enemy_life
 		
 		
 		get_tree().get_root().add_child(enemy_instance)
