@@ -7,9 +7,9 @@ onready var enemy_waver = preload("res://enemy_waver.tscn")
 
 var score = 0
 
-var lateral_percentage = 0
-var waver_percentage = 0
-var normal_percentage = 100
+var lateral_percentage = 15
+var waver_percentage = 15
+var normal_percentage = 70
 
 
 
@@ -37,7 +37,7 @@ func check_score():
 	if score >= 1000:
 		$"you win".visible = true
 	elif score >= 50:
-		pass
+		pass #enemy.speed = 1000
 	elif score >= 20:
 		change_enemy_spawn_time(1)
 		
@@ -59,13 +59,13 @@ func drop_enemy():
 func choose_enemy_instance():
 	
 	var numero_aleatorio = numero_entre_1_y_(100)
-	#print(numero_aleatorio)
+	print(numero_aleatorio)
 	
 	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
 		return enemy_lateral_move.instance()
-	elif numero_aleatorio in range(lateral_percentage, waver_percentage+1):
+	elif numero_aleatorio in range(lateral_percentage, lateral_percentage + waver_percentage+1):
 		return enemy_waver.instance()
-	elif numero_aleatorio in range(waver_percentage, normal_percentage+1):
+	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
 		return enemy.instance()
 
 
