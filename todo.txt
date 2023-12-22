@@ -52,14 +52,18 @@ sistema de power ups *
 sistema de dropeo de power ups por parte de los enemigos *
 Extender esto a todos los powerups (tal vez se quede para cuando tenga todo el contenido listo)(solo hay dos xd)*
 
-sistema de chequeo de puntaje/tiempo para ajustar la dificultad a lo largo del nivel
-sistema de escalado de enemigos (sus stats)(al menos considerar)
+sistema de chequeo de puntaje/tiempo para ajustar la dificultad a lo largo del nivel*
+	PARAMETROS A CAMBIAR
+	- sistema de escalado de enemigos (sus stats)(al menos considerar)
+	- velocidad de spawn * (se puede reducir en caso de subir a los enemigos)
+	- alterar la proporción
 
 
 
 
 -- FASE III:
 
+NUEVO SISTEMA DE LEVEL UP: Mejoras amarillas permanentes (rate, tipo)
 
 Completar arte
 

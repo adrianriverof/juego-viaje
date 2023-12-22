@@ -46,7 +46,7 @@ func take_damage(damage_taken):
 	
 func check_if_dead():
 	
-	print("checkeamso")
+	#print("checkeamso")
 	if life <= 0: 
 		destroy()
 		
@@ -64,10 +64,10 @@ func spawn_powerup():
 	rng.randomize() # al final es tanto lío que vo a acabar volviendo a lo de antes
 	var number = rng.randi_range(1,20)
 	
-	print("ha tirado un dado y ha salido: ", number)
+	#print("ha tirado un dado y ha salido: ", number)
 	
 	if number == 6:
-		print("es 6")
+		#print("es 6")
 		# estos powerups tal vez deberían estar balanceados de una manera más global
 		# como que el juego aumente o reduzca las posibilidades de que se genere
 		

@@ -36,11 +36,12 @@ func check_score():
 	
 	if score >= 1000:
 		$"you win".visible = true
-	
+	elif score >= 50:
+		pass
 	elif score >= 20:
-		change_enemy_spawn_time(0.1)
-		#print("----------------------- cambia el tiempo")
-
+		change_enemy_spawn_time(1)
+		
+		
 
 func change_enemy_spawn_time(new_seconds):
 	$enemy_spawn.wait_time = new_seconds
@@ -48,7 +49,7 @@ func change_enemy_spawn_time(new_seconds):
 func drop_enemy():
 	
 	var enemy_instance = choose_enemy_instance() # enemy.instance()
-	print(enemy_instance)
+	#print(enemy_instance)
 	
 	enemy_instance.position = calculate_position_to_spawn_enemy()
 	enemy_instance.player = get_node("player")
@@ -58,7 +59,7 @@ func drop_enemy():
 func choose_enemy_instance():
 	
 	var numero_aleatorio = numero_entre_1_y_(100)
-	print(numero_aleatorio)
+	#print(numero_aleatorio)
 	
 	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
 		return enemy_lateral_move.instance()
