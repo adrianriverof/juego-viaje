@@ -11,6 +11,7 @@ var life = 3
 
 var damage = 1
 
+var angle = 50
 
 ## ATENCION DE BALANCE: 
 # este enemigo ORBITA
@@ -40,7 +41,7 @@ func get_player_direction():
 	#print(player_direction)
 	
 func adjust_self_direction():
-	player_direction = player_direction.rotated(deg2rad(50))
+	player_direction = player_direction.rotated(deg2rad(angle))
 
 func move_to_the_player():
 	

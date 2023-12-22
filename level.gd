@@ -12,6 +12,24 @@ var waver_percentage = 15
 var normal_percentage = 70
 
 
+# enemies
+var enemy_life = 3
+var enemy_speed = 100
+var enemy_damage = 1
+
+var waver_life = 3
+var waver_speed = 500
+var waver_damage = 1
+var waver_angle = 70
+
+var lateral_life = 3
+var lateral_speed = 500
+var lateral_damage = 1
+var lateral_angle = 50
+
+
+
+
 
 func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, to_inclusive)
 	randomize()    

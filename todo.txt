@@ -58,7 +58,7 @@ sistema de chequeo de puntaje/tiempo para ajustar la dificultad a lo largo del n
 	- velocidad de spawn * (se puede reducir en caso de subir a los enemigos)
 	- alterar la proporción
 
-
+Hay que enlazar muchos parámetros de los enemigos y el jugador al script del level
 
 
 -- FASE III:

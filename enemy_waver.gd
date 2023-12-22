@@ -11,6 +11,7 @@ var life = 3
 
 var damage = 1
 
+var angle = 70
 
 var angle_orientation = 1
 
@@ -36,7 +37,7 @@ func get_player_direction():
 	#print(player_direction)	- dispara
 	
 func adjust_self_direction():
-	player_direction = player_direction.rotated(deg2rad(70* angle_orientation))
+	player_direction = player_direction.rotated(deg2rad(angle* angle_orientation))
 
 func move_to_the_player():
 	
