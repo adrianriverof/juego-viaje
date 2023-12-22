@@ -7,6 +7,10 @@ onready var enemy_waver = preload("res://enemy_waver.tscn")
 
 var score = 0
 
+var lateral_percentage = 0
+var waver_percentage = 0
+var normal_percentage = 100
+
 
 
 func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, to_inclusive)
@@ -29,13 +33,22 @@ func spawn_enemy():
 
 
 func check_score():
-	if score >= 20:
+	
+	if score >= 1000:
 		$"you win".visible = true
+	
+	elif score >= 20:
+		change_enemy_spawn_time(0.1)
+		#print("----------------------- cambia el tiempo")
 
+
+func change_enemy_spawn_time(new_seconds):
+	$enemy_spawn.wait_time = new_seconds
 
 func drop_enemy():
 	
 	var enemy_instance = choose_enemy_instance() # enemy.instance()
+	print(enemy_instance)
 	
 	enemy_instance.position = calculate_position_to_spawn_enemy()
 	enemy_instance.player = get_node("player")
@@ -44,13 +57,14 @@ func drop_enemy():
 
 func choose_enemy_instance():
 	
-	var numero_aleatorio = numero_entre_1_y_(3)
+	var numero_aleatorio = numero_entre_1_y_(100)
+	print(numero_aleatorio)
 	
-	if numero_aleatorio == 1:
+	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
 		return enemy_lateral_move.instance()
-	elif numero_aleatorio == 2:
+	elif numero_aleatorio in range(lateral_percentage, waver_percentage+1):
 		return enemy_waver.instance()
-	else:
+	elif numero_aleatorio in range(waver_percentage, normal_percentage+1):
 		return enemy.instance()
 
 
