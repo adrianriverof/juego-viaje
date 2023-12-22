@@ -66,26 +66,51 @@ func change_enemy_spawn_time(new_seconds):
 
 func drop_enemy():
 	
-	var enemy_instance = choose_enemy_instance() # enemy.instance()
-	#print(enemy_instance)
-	
-	enemy_instance.position = calculate_position_to_spawn_enemy()
-	enemy_instance.player = get_node("player")
-	
-	get_tree().get_root().add_child(enemy_instance)
-
-func choose_enemy_instance():
-	
 	var numero_aleatorio = numero_entre_1_y_(100)
-	print(numero_aleatorio)
+	#print(numero_aleatorio)
 	
 	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
-		return enemy_lateral_move.instance()
-	elif numero_aleatorio in range(lateral_percentage, lateral_percentage + waver_percentage+1):
-		return enemy_waver.instance()
-	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
-		return enemy.instance()
+		
+		var enemy_instance = enemy_lateral_move.instance()
+	
+		enemy_instance.position = calculate_position_to_spawn_enemy()
+		enemy_instance.player = get_node("player")
+		
+		enemy_instance.damage = enemy_damage
+		enemy_instance.speed = enemy_speed
+		enemy_instance.life = enemy_life
+		
+		get_tree().get_root().add_child(enemy_instance)
 
+	elif numero_aleatorio in range(lateral_percentage, lateral_percentage + waver_percentage+1):
+		
+		var enemy_instance = enemy_waver.instance()
+	
+		enemy_instance.position = calculate_position_to_spawn_enemy()
+		enemy_instance.player = get_node("player")
+		
+		enemy_instance.damage = waver_damage
+		enemy_instance.speed = waver_speed
+		enemy_instance.angle = waver_angle
+		enemy_instance.life = waver_life
+		
+		get_tree().get_root().add_child(enemy_instance)
+		
+	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
+		
+		var enemy_instance = enemy_lateral_move.instance()
+	
+		enemy_instance.position = calculate_position_to_spawn_enemy()
+		enemy_instance.player = get_node("player")
+		
+		enemy_instance.damage = lateral_damage
+		enemy_instance.speed = lateral_speed
+		enemy_instance.angle = lateral_angle
+		enemy_instance.life = lateral_life
+		
+		
+		
+		get_tree().get_root().add_child(enemy_instance)
 
 func calculate_position_to_spawn_enemy():
 	var spawn_node = get_node("spawn_positions")
