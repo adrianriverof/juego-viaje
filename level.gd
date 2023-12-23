@@ -53,13 +53,18 @@ func spawn_enemy():
 func check_score():
 	
 	if score >= 1000:
-		$"you win".visible = true
+		$"you win".visible = true 
 	elif score >= 50:
-		enemy_speed = 200
+		enemy_speed = 200 # como se cambiaría un atributo de enemigo
 	elif score >= 20:
-		change_enemy_spawn_time(1)
-		
-		
+		change_enemy_spawn_time(1) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
+	elif score >= 15:
+		lateral_percentage = 95  # un test de como sería variar la distribución
+		waver_percentage = 0 
+		normal_percentage = 5
+	elif score >= 10:
+		get_node("player").firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
+	
 
 func change_enemy_spawn_time(new_seconds):
 	$enemy_spawn.wait_time = new_seconds

@@ -56,12 +56,19 @@ sistema de chequeo de puntaje/tiempo para ajustar la dificultad a lo largo del n
 	PARAMETROS A CAMBIAR
 	- sistema de escalado de enemigos (sus stats)(al menos considerar)
 	- velocidad de spawn * (se puede reducir en caso de subir a los enemigos)
-	- alterar la proporción
+	- alterar la proporción *
 
-Hay que enlazar muchos parámetros de los enemigos y el jugador al script del level
+Hay que enlazar muchos parámetros de los enemigos y el jugador al script del level. (como el jugador es una instancia, es muy sencillo enlazar todas sus variables)  **
+
+
 
 
 -- FASE III:
+
+Flags:
+	- Los otros tipos de enemigos no sueltan powerups
+	- los sistemas no están balanceados
+
 
 NUEVO SISTEMA DE LEVEL UP: Mejoras amarillas permanentes (rate, tipo)
 
@@ -86,7 +93,8 @@ Más enemigos: (¿realmente necesario?)
 	- jefe gordo
 	- trazan laser entre ellos
 
-
+IDEAZA:
+Llega un punto en el que escalas tanto que se rompe el nivel y la camara se aleja, vienen oleadas enormes, naves más grandes, las mejoras se suceden, las mecánicas cambian.
 
 
 
