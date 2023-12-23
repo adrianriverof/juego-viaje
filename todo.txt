@@ -63,16 +63,25 @@ Hay que enlazar muchos parámetros de los enemigos y el jugador al script del le
 
 
 
--- FASE III:
+
+
+-- FASE III:  ¡¡ACTUAL!!
 
 Flags:
-	- Los otros tipos de enemigos no sueltan powerups
+	- Los otros tipos de enemigos no sueltan powerups (falta el waver)
 	- los sistemas no están balanceados
 
 
 NUEVO SISTEMA DE LEVEL UP: Mejoras amarillas permanentes (rate, tipo)
 
 Completar arte
+
+BALANCE Y EXPERIENCIA FINAL
+
+1.0
+
+
+------ 1.1 ---------
 
 obstáculos
 
