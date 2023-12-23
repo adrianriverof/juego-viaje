@@ -117,4 +117,12 @@ position = Vector2( -542, 436 )
 visible = false
 color = Color( 0, 1, 1, 1 )
 
+[node name="score" type="RichTextLabel" parent="."]
+margin_top = -578.0
+margin_right = 40.0
+margin_bottom = -538.0
+rect_scale = Vector2( 10, 10 )
+bbcode_text = "0"
+text = "0"
+
 [connection signal="timeout" from="enemy_spawn" to="." method="_on_enemy_spawn_timeout"]

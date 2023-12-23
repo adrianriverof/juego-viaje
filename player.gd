@@ -231,7 +231,10 @@ func take_damage(damage):
 func take_points(points):
 	score += points
 	
-	get_parent().score = score
+	get_parent().update_score(score)
+	
+	#get_parent().score = score
+	#get_parent().update_score_interface()
 
 	
 

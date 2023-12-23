@@ -42,15 +42,18 @@ func _on_enemy_spawn_timeout():
 
 
 func spawn_enemy():
-	
 	drop_enemy()
 	
-	print(score)
 	
+	
+func update_score(player_score):
+	score = player_score
+	$score.text = str(score)
 	check_score()
 
-
 func check_score():
+	
+	
 	
 	if score >= 1000:
 		$"you win".visible = true 

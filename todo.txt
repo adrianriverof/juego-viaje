@@ -67,12 +67,15 @@ Hay que enlazar muchos parámetros de los enemigos y el jugador al script del le
 
 -- FASE III:  ¡¡ACTUAL!!
 
-Flags:
+Flags:**
 	- Los otros tipos de enemigos no sueltan powerups (falta el waver)*
-	- los sistemas no están balanceados
+	- los sistemas no están balanceados(más o menos mirado)*
 
 
 NUEVO SISTEMA DE LEVEL UP: Mejoras amarillas permanentes (rate, tipo)
+	- aparece un popup del jugador que dice "+damage"
+
+Nuevo enemigo: dispara (este va a ser game changer porque la estrategia de quedarse en frente va a ser muy mala)
 
 Completar arte
 Interfaz: que te muestre el número
