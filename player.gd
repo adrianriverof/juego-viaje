@@ -19,15 +19,14 @@ var rotation_radians = 0.5
 var speed = 500
 var move_weight = 0.05
 
-var life = 1000
+var life = 1
 var score = 0
 
 var firerate_time = 0.1
-var laser_firerate_time = 0.01
+var laser_firerate_time = 0.3
 var triple_firerate_time = 0.1
 
 var triple_separation = 25
-
 
 var damage_scale = 1
 

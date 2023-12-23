@@ -18,12 +18,12 @@ var enemy_speed = 100
 var enemy_damage = 1
 
 var waver_life = 3
-var waver_speed = 500
+var waver_speed = 200
 var waver_damage = 1
 var waver_angle = 70
 
 var lateral_life = 3
-var lateral_speed = 500
+var lateral_speed = 200
 var lateral_damage = 1
 var lateral_angle = 50
 
@@ -55,6 +55,7 @@ func check_score():
 	if score >= 1000:
 		$"you win".visible = true 
 	elif score >= 50:
+		change_enemy_spawn_time(0.1)
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
 	elif score >= 20:
 		change_enemy_spawn_time(0.5) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
