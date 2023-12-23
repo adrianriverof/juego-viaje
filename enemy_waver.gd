@@ -56,7 +56,6 @@ func take_damage(damage_taken):
 	
 func check_if_dead():
 	
-	print("checkeamso")
 	if life <= 0: 
 		player.take_points(1)
 		spawn_powerup()

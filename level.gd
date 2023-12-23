@@ -57,11 +57,11 @@ func check_score():
 	elif score >= 50:
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
 	elif score >= 20:
-		change_enemy_spawn_time(0.1) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
+		change_enemy_spawn_time(0.5) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
 	elif score >= 15:
-		lateral_percentage = 95  # un test de como sería variar la distribución
-		waver_percentage = 0 
-		normal_percentage = 5
+		lateral_percentage = 10  # un test de como sería variar la distribución
+		waver_percentage = 90 
+		normal_percentage = 0
 	elif score >= 10:
 		get_node("player").firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
 	

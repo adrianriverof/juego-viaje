@@ -3,7 +3,6 @@ extends Area2D
 
 var direction
 var direction_vect = Vector2(1,0)
-var speed = 10 # tal vez 20
 var factor_inercia = 0.02
 
 var parent_velocity = Vector2.ZERO
@@ -11,6 +10,7 @@ var inertia = Vector2(0,0)
 var velocity = Vector2(0,0)
 
 var damage = 1
+var speed = 10 # tal vez 20
 
 
 func _ready():

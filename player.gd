@@ -29,6 +29,14 @@ var triple_firerate_time = 0.1
 var triple_separation = 25
 
 
+var damage_scale = 1
+
+# estos tres de momento no van a hacer nada, voy a mover todo en escaladas
+var damage_base = 1   
+var triple_damage = 1
+var laser_damage = 10
+
+
 var active_power_up = ""
 var powerup_time_default_seconds = 10
 
@@ -136,6 +144,7 @@ func fire_laser(laser_rotation):
 	laser_instance.position = get_global_position()
 	#laser_instance.parent_velocity = velocity 
 	laser_instance.rotation = laser_rotation
+	laser_instance.damage *= damage_scale # seguramente no lo necesite porque ya es fuerte
 	
 	get_tree().get_root().add_child(laser_instance)
 
@@ -146,6 +155,7 @@ func fire_bullet(bullet_direction):
 	bullet_instance.position = get_global_position()
 	bullet_instance.parent_velocity = velocity 
 	bullet_instance.direction = bullet_direction
+	bullet_instance.damage *= damage_scale
 	
 	get_tree().get_root().add_child(bullet_instance)
 
@@ -155,6 +165,7 @@ func fire_triple(bullet_direction):
 	bullet_instance.position = get_global_position()
 	bullet_instance.parent_velocity = velocity 
 	bullet_instance.direction = bullet_direction
+	bullet_instance.damage *= damage_scale
 	
 	get_tree().get_root().add_child(bullet_instance)
 	
@@ -162,6 +173,7 @@ func fire_triple(bullet_direction):
 	bullet_instance2.position = get_global_position() + Vector2(-20,triple_separation).rotated(rotation)
 	bullet_instance2.parent_velocity = velocity 
 	bullet_instance2.direction = bullet_direction
+	bullet_instance.damage *= damage_scale
 	
 	get_tree().get_root().add_child(bullet_instance2)
 	
@@ -169,6 +181,7 @@ func fire_triple(bullet_direction):
 	bullet_instance3.position = get_global_position() + Vector2(-20,-triple_separation).rotated(rotation)
 	bullet_instance3.parent_velocity = velocity 
 	bullet_instance3.direction = bullet_direction
+	bullet_instance.damage *= damage_scale
 	
 	get_tree().get_root().add_child(bullet_instance3)
 
