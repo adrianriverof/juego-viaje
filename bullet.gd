@@ -41,7 +41,7 @@ func _physics_process(delta):
 func _on_bullet_body_entered(body):
 	
 	if body.is_in_group("enemy"):
-		print("es un enemigo")
+		#print("es un enemigo")
 		body.take_damage(damage)
 		
 		queue_free()

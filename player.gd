@@ -41,7 +41,9 @@ var powerup_time_default_seconds = 10
 
 func _input(event):
 	if Input.is_action_just_pressed("restore_life_temporal"):
-		life += 1
+		life = 1
+		drop_mine()
+		explode_mine()
 
 
 func get_powerup(name, duration_seconds = 10):

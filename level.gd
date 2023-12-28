@@ -38,11 +38,6 @@ func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, t
 
 
 func _on_enemy_spawn_timeout():
-	spawn_enemy()
-
-
-
-func spawn_enemy():
 	drop_enemy()
 	
 	
@@ -59,31 +54,48 @@ func check_score():
 	if score >= 1000:
 		$"you win".visible = true 
 	
+	elif score >= 140:
+		
+		pass
 	
-	elif score >= 50:
+	
+	elif score >= 120:
+		change_enemy_spawn_time(1)
+		
+		lateral_percentage = 20
+		waver_percentage = 20
+		normal_percentage = 80
+	
+	
+	elif score >= 100:
 		change_enemy_spawn_time(1)
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
-	
-	elif score >= 30:
+		
+		lateral_percentage = 0
+		waver_percentage = 0
+		normal_percentage = 100
+		
+		
+	elif score >= 60:
 		change_enemy_spawn_time(0.8)
 		lateral_percentage = 20
 		waver_percentage = 20
 		normal_percentage = 60
 	
-	elif score >= 25:
+	elif score >= 45:
 		change_enemy_spawn_time(1)
 		lateral_percentage = 25
 		waver_percentage = 50
 		normal_percentage = 25
 	
 	
-	elif score >= 20:
+	elif score >= 40:
 		lateral_percentage = 10  # un test de como sería variar la distribución
 		waver_percentage = 0
 		normal_percentage = 90
 		change_enemy_spawn_time(0.2)
 	
-	elif score >= 10:
+	elif score >= 20:
 		#player.firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
 		lateral_percentage = 20 
 		waver_percentage = 0 
