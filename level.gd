@@ -61,28 +61,38 @@ func check_score():
 	
 	
 	elif score >= 50:
-		change_enemy_spawn_time(0.1)
+		change_enemy_spawn_time(1)
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
+	
+	elif score >= 30:
+		change_enemy_spawn_time(0.8)
+		lateral_percentage = 20
+		waver_percentage = 20
+		normal_percentage = 60
+	
+	elif score >= 25:
+		change_enemy_spawn_time(1)
+		lateral_percentage = 25
+		waver_percentage = 50
+		normal_percentage = 25
 	
 	
 	elif score >= 20:
-		change_enemy_spawn_time(0.5) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
-	
-	
-	elif score >= 15:
 		lateral_percentage = 10  # un test de como sería variar la distribución
-		waver_percentage = 90 
-		normal_percentage = 0
-	
+		waver_percentage = 0
+		normal_percentage = 90
+		change_enemy_spawn_time(0.2)
 	
 	elif score >= 10:
-		player.firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
+		#player.firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
+		lateral_percentage = 20 
+		waver_percentage = 0 
+		normal_percentage = 80
 	
-	
-	elif score >= 0: # condiciones iniciales
+	elif score >= 0: # condiciones iniciales, por comprobar
 		change_enemy_spawn_time(1)
 		
-		lateral_percentage = 0  # un test de como sería variar la distribución
+		lateral_percentage = 0 
 		waver_percentage = 0 
 		normal_percentage = 100
 		

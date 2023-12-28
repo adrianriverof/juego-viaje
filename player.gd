@@ -39,6 +39,10 @@ var laser_damage = 10
 var active_power_up = ""
 var powerup_time_default_seconds = 10
 
+func _input(event):
+	if Input.is_action_just_pressed("restore_life_temporal"):
+		life += 1
+
 
 func get_powerup(name, duration_seconds = 10):
 	
