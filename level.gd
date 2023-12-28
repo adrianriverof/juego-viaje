@@ -4,12 +4,13 @@ onready var enemy = preload("res://enemy.tscn")
 onready var enemy_lateral_move = preload("res://enemy_lateral_move.tscn")
 onready var enemy_waver = preload("res://enemy_waver.tscn")
 
+onready var player = get_node("player")
 
 var score = 0
 
-var lateral_percentage = 15
-var waver_percentage = 15
-var normal_percentage = 70
+var lateral_percentage = 0
+var waver_percentage = 0
+var normal_percentage = 100
 
 
 # enemies
@@ -57,18 +58,37 @@ func check_score():
 	
 	if score >= 1000:
 		$"you win".visible = true 
+	
+	
 	elif score >= 50:
 		change_enemy_spawn_time(0.1)
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
+	
+	
 	elif score >= 20:
 		change_enemy_spawn_time(0.5) # un ejemplo de como se cambiaría el tiempo de spawn enemigo
+	
+	
 	elif score >= 15:
 		lateral_percentage = 10  # un test de como sería variar la distribución
 		waver_percentage = 90 
 		normal_percentage = 0
-	elif score >= 10:
-		get_node("player").firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
 	
+	
+	elif score >= 10:
+		player.firerate_time *= 0.5 # ejemplo de incrementar un atributo jugador
+	
+	
+	elif score >= 0: # condiciones iniciales
+		change_enemy_spawn_time(1)
+		
+		lateral_percentage = 0  # un test de como sería variar la distribución
+		waver_percentage = 0 
+		normal_percentage = 100
+		
+		
+
+
 
 func change_enemy_spawn_time(new_seconds):
 	$enemy_spawn.wait_time = new_seconds
@@ -80,48 +100,63 @@ func drop_enemy():
 	
 	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
 		
-		var enemy_instance = enemy_lateral_move.instance()
-	
-		enemy_instance.position = calculate_position_to_spawn_enemy()
-		enemy_instance.player = get_node("player")
+		spawn_lateral_enemy()
 		
-		
-		enemy_instance.damage = lateral_damage
-		enemy_instance.speed = lateral_speed
-		enemy_instance.angle = lateral_angle
-		enemy_instance.life = lateral_life
-		
-		
-		get_tree().get_root().add_child(enemy_instance)
 
 	elif numero_aleatorio in range(lateral_percentage, lateral_percentage + waver_percentage+1):
 		
-		var enemy_instance = enemy_waver.instance()
-	
-		enemy_instance.position = calculate_position_to_spawn_enemy()
-		enemy_instance.player = get_node("player")
-		
-		enemy_instance.damage = waver_damage
-		enemy_instance.speed = waver_speed
-		enemy_instance.angle = waver_angle
-		enemy_instance.life = waver_life
-		
-		get_tree().get_root().add_child(enemy_instance)
+		spawn_waver_enemy()
 		
 	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
 		
-		var enemy_instance = enemy.instance()
+		spawn_normal_enemy()
+		
+
+func spawn_lateral_enemy():
 	
-		enemy_instance.position = calculate_position_to_spawn_enemy()
-		enemy_instance.player = get_node("player")
-		
-		
-		enemy_instance.damage = enemy_damage
-		enemy_instance.speed = enemy_speed
-		enemy_instance.life = enemy_life
-		
-		
-		get_tree().get_root().add_child(enemy_instance)
+	var enemy_instance = enemy_lateral_move.instance()
+	
+	enemy_instance.position = calculate_position_to_spawn_enemy()
+	enemy_instance.player = player
+	
+	
+	enemy_instance.damage = lateral_damage
+	enemy_instance.speed = lateral_speed
+	enemy_instance.angle = lateral_angle
+	enemy_instance.life = lateral_life
+	
+	
+	get_tree().get_root().add_child(enemy_instance)
+
+func spawn_waver_enemy():
+	
+	var enemy_instance = enemy_waver.instance()
+	
+	enemy_instance.position = calculate_position_to_spawn_enemy()
+	enemy_instance.player = player
+	
+	enemy_instance.damage = waver_damage
+	enemy_instance.speed = waver_speed
+	enemy_instance.angle = waver_angle
+	enemy_instance.life = waver_life
+	
+	get_tree().get_root().add_child(enemy_instance)
+
+func spawn_normal_enemy():
+	
+	var enemy_instance = enemy.instance()
+
+	enemy_instance.position = calculate_position_to_spawn_enemy()
+	enemy_instance.player = player
+	
+	
+	enemy_instance.damage = enemy_damage
+	enemy_instance.speed = enemy_speed
+	enemy_instance.life = enemy_life
+	
+	
+	get_tree().get_root().add_child(enemy_instance)
+
 
 func calculate_position_to_spawn_enemy():
 	var spawn_node = get_node("spawn_positions")
