@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 
+
 var bullet = preload("res://bullet.tscn")
 var laser = preload("res://laser.tscn")
 
@@ -30,7 +31,6 @@ var triple_separation = 25
 
 var damage_scale = 1
 
-# estos tres de momento no van a hacer nada, voy a mover todo en escaladas
 var damage_base = 1   
 var triple_damage = 1
 var laser_damage = 10
@@ -38,6 +38,7 @@ var laser_damage = 10
 
 var active_power_up = ""
 var powerup_time_default_seconds = 10
+
 
 func _input(event):
 	if Input.is_action_just_pressed("restore_life_temporal"):
@@ -74,6 +75,37 @@ func _physics_process(delta):
 		get_parent().player_is_dead()
 
 
+
+func move():
+	avance()
+	giro()
+
+func avance():
+	avance_inputs()
+	aplicar_velocidad_segun_angulo()
+
+
+func avance_inputs():
+	cantidad_avance = int(Input.is_action_pressed("p1up")) - int(Input.is_action_pressed("p1down"))
+
+func aplicar_velocidad_segun_angulo():
+	velocity.x = lerp(velocity.x, cantidad_avance * speed * cos(rotation), move_weight)
+	velocity.y = lerp(velocity.y, cantidad_avance * speed * sin(rotation), move_weight)
+	move_and_slide(velocity)
+
+func giro():
+	giro_inputs()
+	rotar_todo()
+
+
+func giro_inputs():
+	cantidad_giro = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
+	
+func rotar_todo():
+	rotation += cantidad_giro * rotation_radians/(2 * PI)
+
+
+
 func choose_shoot_type_and_shoot():
 	
 	match active_power_up:
@@ -82,7 +114,7 @@ func choose_shoot_type_and_shoot():
 		
 		_: shoot_normal()
 		
-	
+
 
 func mines():
 	
@@ -96,6 +128,7 @@ func mines():
 func there_is_a_mine():
 	if get_tree().get_root().get_node("p1mine"):
 		return true
+
 
 func drop_mine():
 	
@@ -112,6 +145,7 @@ func explode_mine():
 
 
 func shoot_normal():
+	
 	firerate_timer.wait_time = firerate_time
 	
 	if player_is_pressing_shoot() and you_can_shoot():
@@ -194,45 +228,11 @@ func fire_triple(bullet_direction):
 	get_tree().get_root().add_child(bullet_instance3)
 
 
-
-
-func move():
-	avance()
-	giro()
-
-
-func avance():
-	avance_inputs()
-	aplicar_velocidad_segun_angulo()
-
-
-func aplicar_velocidad_segun_angulo():
-	
-	velocity.x = lerp(velocity.x, cantidad_avance * speed * cos(rotation), move_weight)
-	velocity.y = lerp(velocity.y, cantidad_avance * speed * sin(rotation), move_weight)
-	
-	move_and_slide(velocity)
-
-func avance_inputs():
-	cantidad_avance = int(Input.is_action_pressed("p1up")) - int(Input.is_action_pressed("p1down"))
-
-func giro():
-	giro_inputs()
-	rotar_todo()
-
-func rotar_todo():
-	rotation += cantidad_giro * rotation_radians/(2 * PI)
-
-func giro_inputs():
-	cantidad_giro = int(Input.is_action_pressed("p1right")) - int(Input.is_action_pressed("p1left"))
-	
-
 func take_damage(damage):
 	life -= damage
-	
+
 
 func take_points(points):
-	
 	score += points
 	get_parent().update_score(score)
 	
