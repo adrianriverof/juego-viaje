@@ -172,7 +172,7 @@ func spawn_normal_enemy():
 	enemy_instance.life = enemy_life
 	
 	
-	get_tree().get_root().add_child(enemy_instance)
+	add_child(enemy_instance)
 
 
 func calculate_position_to_spawn_enemy():
@@ -190,6 +190,6 @@ func player_is_dead():
 
 func reset_level():
 	get_tree().reload_current_scene()
-	get_tree().change_scene("res://transition_scene.tscn")
+	#get_tree().change_scene("res://transition_scene.tscn")
 
 
