@@ -44,6 +44,9 @@ func _input(event):
 		life = 1
 		drop_mine()
 		explode_mine()
+	
+	if Input.is_action_just_pressed("reset") and life <= 0:
+		get_parent().reset_level()
 
 
 func get_powerup(name, duration_seconds = 10):

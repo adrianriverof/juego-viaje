@@ -184,9 +184,11 @@ func calculate_position_to_spawn_enemy():
 
 
 func player_is_dead():
+	
 	$enemy_spawn.stop()
 	$Restart.visible = true
 
-
+func reset_level():
+	get_tree().change_scene("res://scenes/levels/stage_1.tscn")
 
 
