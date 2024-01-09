@@ -189,6 +189,7 @@ func player_is_dead():
 	$Restart.visible = true
 
 func reset_level():
-	get_tree().change_scene("res://scenes/levels/stage_1.tscn")
+	get_tree().reload_current_scene()
+	get_tree().change_scene("res://transition_scene.tscn")
 
 

@@ -46,6 +46,7 @@ func _input(event):
 		explode_mine()
 	
 	if Input.is_action_just_pressed("reset") and life <= 0:
+		print("space pressed")
 		get_parent().reset_level()
 
 
