@@ -134,14 +134,12 @@ func spawn_lateral_enemy():
 	enemy_instance.position = calculate_position_to_spawn_enemy()
 	enemy_instance.player = player
 	
-	
 	enemy_instance.damage = lateral_damage
 	enemy_instance.speed = lateral_speed
 	enemy_instance.angle = lateral_angle
 	enemy_instance.life = lateral_life
 	
-	
-	get_tree().get_root().add_child(enemy_instance)
+	add_child(enemy_instance)
 
 
 func spawn_waver_enemy():
@@ -156,7 +154,7 @@ func spawn_waver_enemy():
 	enemy_instance.angle = waver_angle
 	enemy_instance.life = waver_life
 	
-	get_tree().get_root().add_child(enemy_instance)
+	add_child(enemy_instance)
 
 
 func spawn_normal_enemy():
@@ -166,11 +164,9 @@ func spawn_normal_enemy():
 	enemy_instance.position = calculate_position_to_spawn_enemy()
 	enemy_instance.player = player
 	
-	
 	enemy_instance.damage = enemy_damage
 	enemy_instance.speed = enemy_speed
 	enemy_instance.life = enemy_life
-	
 	
 	add_child(enemy_instance)
 

@@ -22,8 +22,6 @@ func _physics_process(delta):
 	adjust_sprite_rotation()
 	
 
-
-
 func get_player_direction():
 	player_direction = (player.position - self.position).normalized()
 
@@ -70,7 +68,7 @@ func spawn_powerup():
 
 func tirar_dado_d20():
 	var rng = RandomNumberGenerator.new()
-	rng.randomize() # al final es tanto lío que vo a acabar volviendo a lo de antes
+	rng.randomize() 
 	return (rng.randi_range(1,20))
 
 func generar_powerup(powerup_onready_var):
