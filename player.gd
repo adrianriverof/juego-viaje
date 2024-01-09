@@ -66,9 +66,9 @@ func _physics_process(delta):
 		move()
 		choose_shoot_type_and_shoot()
 		mines()
-		#shoot_laser()
-		#shoot_triple()
 	
+	else:
+		get_parent().player_is_dead()
 
 
 func choose_shoot_type_and_shoot():
@@ -78,7 +78,7 @@ func choose_shoot_type_and_shoot():
 		"triple": shoot_triple()
 		
 		_: shoot_normal()
-			
+		
 	
 
 func mines():
@@ -227,20 +227,10 @@ func giro_inputs():
 func take_damage(damage):
 	life -= damage
 	
-	
-	print("Dañado........")
-	
-	
-	#queue_free()
-
 
 func take_points(points):
+	
 	score += points
-	
 	get_parent().update_score(score)
-	
-	#get_parent().score = score
-	#get_parent().update_score_interface()
-
 	
 

@@ -183,7 +183,9 @@ func calculate_position_to_spawn_enemy():
 	return spawn_node.get_node(str(posicion_aleatoria)).position
 
 
-
+func player_is_dead():
+	$enemy_spawn.stop()
+	$Restart.visible = true
 
 
 
