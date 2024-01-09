@@ -3,8 +3,6 @@ extends KinematicBody2D
 onready var powerup_laser = preload("res://powerup_laser.tscn")
 onready var powerup_triple = preload("res://powerup_triple.tscn")
 
-
-#onready var player = get_parent().get_node("player")
 var player
 
 var player_position = Vector2.ZERO
@@ -16,73 +14,69 @@ var life = 3
 var damage = 1
 
 
-func _ready():
-	#print(player)
-	pass
 
 func _physics_process(delta):
 	
 	get_player_direction()
 	move_to_the_player()
-	rotation = player_direction.angle()+PI/2
+	adjust_sprite_rotation()
 	
+
+
+
 func get_player_direction():
-	
-	#player_position = player.position
-	
 	player_direction = (player.position - self.position).normalized()
-	
-	#print(player_direction)
-	
+
 func move_to_the_player():
-	
 	move_and_slide(player_direction * speed)
 	
-	
+func adjust_sprite_rotation():
+	rotation = player_direction.angle()+PI/2
+
+
+
+
 func take_damage(damage_taken):
 	life -= damage_taken
-	
 	check_if_dead()
 	
 func check_if_dead():
-	
-	#print("checkeamso")
 	if life <= 0: 
 		destroy()
-		
-		
-	
+
+
 func destroy():
-	player.take_points(1)
+	give_points_to_player()
 	spawn_powerup()
 	
 	queue_free()
-	
+
+
+func give_points_to_player():
+	player.take_points(1)
+
+
+
 func spawn_powerup():
 	
-	var rng = RandomNumberGenerator.new()
-	rng.randomize() # al final es tanto lío que vo a acabar volviendo a lo de antes
-	var number = rng.randi_range(1,20)
-	
-	#print("ha tirado un dado y ha salido: ", number)
+	var number = tirar_dado_d20()
 	
 	if number == 6:
-		#print("es 6")
-		# estos powerups tal vez deberían estar balanceados de una manera más global
-		# como que el juego aumente o reduzca las posibilidades de que se genere
-		
-		var poweruplaser_instance = powerup_laser.instance()
-		poweruplaser_instance.position = self.position
-		get_tree().get_root().add_child(poweruplaser_instance)
+		generar_powerup(powerup_laser)
 		
 	elif number == 7:
+		generar_powerup(powerup_triple)
 		
-		var poweruptriple_instance = powerup_triple.instance()
-		poweruptriple_instance.position = self.position
-		get_tree().get_root().add_child(poweruptriple_instance)
-		
-	
 
+func tirar_dado_d20():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize() # al final es tanto lío que vo a acabar volviendo a lo de antes
+	return (rng.randi_range(1,20))
+
+func generar_powerup(powerup_onready_var):
+	var powerup_instance = powerup_onready_var.instance()
+	powerup_instance.position = self.position
+	get_tree().get_root().add_child(powerup_instance)
 
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("player"):
