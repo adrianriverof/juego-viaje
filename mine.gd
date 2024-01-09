@@ -1,8 +1,5 @@
 extends Area2D
 
-
-
-
 var direction
 var direction_vect = Vector2(-1,0)
 
@@ -42,14 +39,10 @@ func _physics_process(delta):
 	
 	
 
-
-
-
 func explode():
 	
 	if $delete_timer.is_stopped():
-	
-	
+		
 		frena_la_mina()
 		
 		activa_el_area_de_dano()
