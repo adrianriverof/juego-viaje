@@ -17,14 +17,15 @@ var life_time = 0.3
 
 func _ready():
 	
-	$destroy.wait_time = life_time
-	$destroy.start()
+	set_destroy_timer()
 	
 	calcula_inercia()
-	#rota_la_direccion()
 	aplica_inercia_y_velocidad()
-	#rotacion_general()
 	
+func set_destroy_timer():
+	$destroy.wait_time = life_time
+	$destroy.start()
+
 func calcula_inercia():
 	inertia = parent_velocity * factor_inercia
 	
@@ -41,22 +42,12 @@ func rotacion_general():
 func _physics_process(delta):
 	translate(velocity)
 	
-	
-
-
 func _on_bullet_body_entered(body):
 	
 	if body.is_in_group("enemy"):
 		print("es un enemigo")
 		body.take_damage(damage)
 		
-		#queue_free()
-
-
-
-
-
-
 
 func _on_destroy_timeout():
 	queue_free()
