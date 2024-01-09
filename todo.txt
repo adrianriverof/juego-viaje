@@ -76,36 +76,42 @@ Interfaz: que te muestre el número*
 
 
 
-Nuevo enemigo: dispara (este va a ser game changer porque la estrategia de quedarse en frente va a ser muy mala)
+Nuevo enemigo: dispara (este va a ser game changer porque la estrategia de quedarse en frente va a ser muy mala) [cancelo, no prioritario]
 
 
 restart/menús/pausa
-BALANCE Y EXPERIENCIA FINAL
+BALANCE Y EXPERIENCIA FINAL*
 
 
 NUEVO SISTEMA DE LEVEL UP: Mejoras amarillas permanentes (rate, tipo)
-	- aparece un popup del jugador que dice "+damage"
+	- aparece un popup del jugador que dice "+damage" [cancelo, esto es juice no prioritario]
 
-Nuevo Powerup: escudo (?)
-
-Completar arte
-
-	
+Nuevo Powerup: escudo (?) [cancelo]
 
 
+"ya tengo algo jugable de principio a fin con una serie de cambios. Ahora lo importante sería tener el resto de menú, sistema de pausa, reset, sonido, música. 
+Esto nos dará una idea final de como sería completo, con su nivel de pulido hasta cierto punto."
+"Con este prototipo en mano podríamos tener un equivalente a Constelaria, con esto podemos testear la idea, ver como reacciona la gente a ello, y con eso ajustar la experiencia y hacerla más agradable."
 
-FASE IV: Pulir
 
-mejorar interfaz(elegir font)*
+Creo que está quedando bien para llevar 20h solo
+
+
+FASE IV: Pulir prototipo
+
+Menús (que se pueda reiniciar y tal, bastante esencial para que sea funcional)
+
+Completar arte (creo que no queda mucho, los círculos si eso)
+Sonidos
+Música (al menos plantear el mood general)
+
 animaciones menores
-menús juicy
-partículas
-
-SONIDO
-MUSICA
+juice, partículas
 
 
-\\1.0 release//
+
+
+
 
 
 

@@ -8,12 +8,12 @@ onready var player = get_node("player")
 
 var score = 0
 
+
 var lateral_percentage = 0
 var waver_percentage = 0
 var normal_percentage = 100
 
 
-# enemies
 var enemy_life = 3
 var enemy_speed = 100
 var enemy_damage = 1
@@ -40,8 +40,8 @@ func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, t
 func _on_enemy_spawn_timeout():
 	drop_enemy()
 	
-	
-	
+
+
 func update_score(player_score):
 	score = player_score
 	$score.text = str(score)
@@ -49,13 +49,7 @@ func update_score(player_score):
 
 func check_score():
 	
-	
-	
-	if score >= 1000:
-		$"you win".visible = true 
-	
-	elif score >= 140:
-		
+	if score >= 140:
 		pass
 	
 	
@@ -124,15 +118,14 @@ func drop_enemy():
 		
 		spawn_lateral_enemy()
 		
-
 	elif numero_aleatorio in range(lateral_percentage, lateral_percentage + waver_percentage+1):
 		
 		spawn_waver_enemy()
-		
+	
 	elif numero_aleatorio in range(waver_percentage+lateral_percentage, 101):
 		
 		spawn_normal_enemy()
-		
+
 
 func spawn_lateral_enemy():
 	
@@ -150,6 +143,7 @@ func spawn_lateral_enemy():
 	
 	get_tree().get_root().add_child(enemy_instance)
 
+
 func spawn_waver_enemy():
 	
 	var enemy_instance = enemy_waver.instance()
@@ -163,6 +157,7 @@ func spawn_waver_enemy():
 	enemy_instance.life = waver_life
 	
 	get_tree().get_root().add_child(enemy_instance)
+
 
 func spawn_normal_enemy():
 	
