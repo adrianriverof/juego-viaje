@@ -39,19 +39,18 @@ func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, t
 
 func _on_enemy_spawn_timeout():
 	drop_enemy()
-	
 
 
 func update_score(player_score):
 	score = player_score
 	$score.text = str(score)
-	check_score()
+	check_score_to_apply_changes()
 
-func check_score():
+
+func check_score_to_apply_changes():
 	
 	if score >= 140:
 		pass
-	
 	
 	elif score >= 120:
 		change_enemy_spawn_time(1)
@@ -60,7 +59,6 @@ func check_score():
 		waver_percentage = 20
 		normal_percentage = 80
 	
-	
 	elif score >= 100:
 		change_enemy_spawn_time(1)
 		enemy_speed = 200 # como se cambiaría un atributo de enemigo
@@ -68,7 +66,6 @@ func check_score():
 		lateral_percentage = 0
 		waver_percentage = 0
 		normal_percentage = 100
-		
 		
 	elif score >= 60:
 		change_enemy_spawn_time(0.8)
@@ -81,7 +78,6 @@ func check_score():
 		lateral_percentage = 25
 		waver_percentage = 50
 		normal_percentage = 25
-	
 	
 	elif score >= 40:
 		lateral_percentage = 10  # un test de como sería variar la distribución
@@ -101,8 +97,6 @@ func check_score():
 		lateral_percentage = 0 
 		waver_percentage = 0 
 		normal_percentage = 100
-		
-		
 
 
 
@@ -112,7 +106,7 @@ func change_enemy_spawn_time(new_seconds):
 func drop_enemy():
 	
 	var numero_aleatorio = numero_entre_1_y_(100)
-	#print(numero_aleatorio)
+	
 	
 	if numero_aleatorio in range(1,lateral_percentage+1):  # inc, exc
 		
@@ -186,6 +180,5 @@ func player_is_dead():
 
 func reset_level():
 	get_tree().reload_current_scene()
-	#get_tree().change_scene("res://transition_scene.tscn")
-
+	
 
