@@ -8,7 +8,6 @@ onready var player = get_node("player")
 
 var score = 0
 
-
 var lateral_percentage = 0
 var waver_percentage = 0
 var normal_percentage = 100
@@ -29,7 +28,7 @@ var lateral_damage = 1
 var lateral_angle = 50
 
 
-
+# probando probando
 
 
 func numero_entre_1_y_(number):   # esto es esencialmente un randi_range(from, to_inclusive)
