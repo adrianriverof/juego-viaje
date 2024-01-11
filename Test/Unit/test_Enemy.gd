@@ -13,3 +13,4 @@ func test_dice_enemy():
 	
 	assert_gt(result, 0, "El dado del enemigo debe dar un número mayor de 0")
 	assert_lt(result, 21, "El dado enemigo debe dar numero menor a 20")
+

@@ -7,4 +7,6 @@ margin_right = 740.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 740, 250 )
 script = ExtResource( 1 )
+_font_size = 15
+_include_subdirectories = true
 _directory1 = "res://Test/Unit"
